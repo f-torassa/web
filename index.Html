@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="es" style="scroll-behavior: smooth;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francisco Torassa - Administrador de Empresas & Coach Ontológico</title>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<style>
+/* [CÓDIGO CSS - COMPLETO Y CONSOLIDADO] */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+background-color: #ffffff;
+color: #1e293b;
+}
+/* === CORRECCIÓN PARA SCROLL EN ANCHOR LINKS (HEADINGS VISIBLES) === */
+#acerca-de,
+#servicios,
+#contacto {
+    scroll-margin-top: 6rem; /* Reserva espacio por encima para la sticky header */
+}
+/* === HEADER (SECCIÓN 1) Styles === */
+.seccion1 {
+background-color: #ffffff;
+border-bottom: 1px solid #e5e7eb;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.header-container {
+max-width: 1280px;
+margin: 0 auto;
+padding: 0.75rem 1.5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.logo-section {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+.logo-section img {
+height: 4rem;
+width: auto;
+}
+.logo-section h1 {
+font-size: 1.125rem;
+font-weight: 700;
+color: #1e3a8a;
+}
+/* Navigation Styles */
+nav {
+display: flex;
+gap: 2rem;
+align-items: center;
+}
+nav a {
+background: none;
+border: none;
+color: #1e3a8a;
+font-weight: 500;
+cursor: pointer;
+padding: 0.5rem 0;
+transition: color 0.3s ease;
+border-bottom: 2px solid transparent;
+text-decoration: none; /* Quitamos el subrayado */
+}
+nav a:hover {
+color: #1e40af;
+}
+nav a.active {
+border-bottom-color: #1e3a8a;
+}
+/* Carousel Styles (Mantenidos) */
+.carousel {
+position: relative;
+width: 100%;
+height: 100vh;
+overflow: hidden;
+background-color: #111827;
+}
+.carousel-image {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+.carousel-image.active {
+opacity: 1;
+}
+.carousel-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+/* Carousel Content (Mantenidos) */
+.carousel-content {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+padding-left: 3rem;
+}
+.carousel-text {
+/* Eliminamos la animación de la clase general para que el texto esté visible */
+}
+.slide-1-content {
+    /* El contenido del slide 1 ahora será estático por ser el home. */
+}
+/* Carousel 1 Styles */
+.carousel-text-group {
+display: flex;
+flex-direction: column;
+gap: 0;
+}
+.carousel-text-blue {
+background-color: #1e3a8a;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.875rem;
+font-weight: 700;
+}
+.carousel-text-orange {
+background-color: #ea580c;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.125rem;
+font-weight: 600;
+}
+/* --- NUEVOS ESTILOS PARA CARRUSEL 2 (Verde) --- */
+.carousel-text-blue-2 {
+background-color: #16a34a;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.875rem;
+font-weight: 700;
+}
+/* *** MODIFICADO PARA FUNCIONAR COMO ANCHOR LINK A #contacto *** */
+.carousel-text-orange-2 {
+background-color: #1e3a8a;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.125rem;
+font-weight: 600;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+text-decoration: none; /* Asegura que el <a> no tenga subrayado */
+display: inline-block; /* Asegura que tome el padding */
+}
+.carousel-text-orange-2:hover {
+background-color: #1e40af;
+}
+/* --- NUEVOS ESTILOS PARA CARRUSEL 3 (Naranja/Azul) --- */
+.carousel-text-orange-3 {
+background-color: #ea580c;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.875rem;
+font-weight: 700;
+}
+.carousel-text-blue-3 {
+background-color: #1e3a8a;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.125rem;
+font-weight: 600;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+text-decoration: none; /* Asegura que el <a> no tenga subrayado */
+display: inline-block; /* Asegura que tome el padding */
+}
+.carousel-text-blue-3:hover {
+background-color: #1e40af;
+}
+/* --- NUEVOS ESTILOS PARA CARRUSEL 4 (Verde/Naranja) --- */
+/* Estilo específico para el enlace de autodiagnóstico en el carrusel */
+.carousel-text-orange-4 {
+background-color: #ea580c;
+color: #ffffff;
+padding: 0.75rem 2rem;
+font-size: 1.125rem;
+font-weight: 600;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+text-decoration: none; /* Añadido para que el <a> se vea como botón */
+}
+.carousel-text-orange-4:hover {
+background-color: #f97316;
+}
+/* Carousel Indicators */
+.carousel-indicators {
+position: absolute;
+bottom: 1rem;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 0.5rem;
+}
+.indicator {
+width: 0.75rem;
+height: 0.75rem;
+border-radius: 50%;
+background-color: rgba(255, 255, 255, 0.5);
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.indicator.active {
+background-color: #ffffff;
+width: 2rem;
+}
+/* --- INICIO: SECCIÓN 2 STYLES --- */
+.seccion2 {
+background-color: #f8f8f8;
+padding: 4rem 1.5rem;
+text-align: center;
+}
+.seccion2-container {
+max-width: 800px;
+margin: 0 auto;
+}
+.seccion2-container h2 {
+font-size: 2rem;
+font-weight: 700;
+color: #1e3a8a;
+margin-bottom: 1.5rem;
+position: relative;
+padding-bottom: 0.5rem;
+display: inline-block;
+}
+.seccion2-container h2::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: #ea580c;
+bottom: 0;
+left: 0;
+}
+.seccion2-container p {
+font-size: 1.125rem;
+color: #1e3a8a;
+line-height: 1.6;
+margin-bottom: 2rem;
+}
+/* Estilos para el botón "Conóceme Mejor" (Apunta a acerca-de.html) */
+.seccion2-btn {
+background-color: #1e3a8a;
+color: #ffffff;
+border: none;
+padding: 0.75rem 2rem;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+text-decoration: none;
+display: inline-block;
+}
+.seccion2-btn:hover {
+background-color: #1e40af;
+transform: translateY(-2px);
+}
+/* --- FIN: SECCIÓN 2 STYLES --- */
+/* --- INICIO: SECCIÓN 3 STYLES (Pilares) --- */
+.seccion3 {
+background-color: #ffffff;
+padding: 4rem 1.5rem;
+text-align: center;
+}
+.seccion3-container {
+max-width: 1280px;
+margin: 0 auto;
+}
+.seccion3 h2 {
+font-size: 2rem;
+font-weight: 700;
+color: #ea580c;
+margin-bottom: 2rem;
+position: relative;
+padding-bottom: 0.5rem;
+display: inline-block;
+}
+.seccion3 h2::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: #1e3a8a;
+bottom: 0;
+left: 0;
+}
+.services-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 2rem;
+margin-top: 3rem;
+}
+.service-card {
+width: 100%;
+max-width: 380px;
+flex: 1 1 300px;
+background-color: #f8f8f8;
+border-radius: 8px;
+padding: 2rem;
+text-align: center;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+background-color: #e9e9e9;
+}
+.service-card-icon {
+font-size: 3rem;
+color: #1e3a8a;
+margin-bottom: 1rem;
+}
+.service-card h3 {
+font-size: 1.25rem;
+color: #1e3a8a;
+margin-bottom: 1rem;
+font-weight: 700;
+}
+.service-card p {
+font-size: 1rem;
+color: #4b5563;
+line-height: 1.5;
+margin-bottom: 1rem;
+}
+/* Estilos para el nuevo botón de las tarjetas (Sección 3) */
+.service-card-btn {
+background-color: #ea580c;
+color: #ffffff;
+border: none;
+padding: 0.5rem 1.5rem;
+font-size: 0.9rem;
+font-weight: 600;
+border-radius: 4px;
+cursor: pointer;
+margin-top: 1.25rem;
+display: inline-block;
+text-decoration: none;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.service-card-btn:hover {
+background-color: #f97316;
+transform: translateY(-1px);
+}
+/* --- FIN: SECCIÓN 3 STYLES --- */
+/* --- INICIO: SECCIÓN 4 STYLES (Recursos Destacados) --- */
+.seccion4 {
+background-color: #1e3a8a;
+color: #ffffff;
+padding: 4rem 1.5rem;
+text-align: center;
+}
+.seccion4-container {
+max-width: 1280px;
+margin: 0 auto;
+}
+.seccion4 h2 {
+font-size: 2rem;
+font-weight: 700;
+color: #ffffff;
+margin-bottom: 3rem;
+position: relative;
+padding-bottom: 0.5rem;
+display: inline-block;
+}
+.seccion4 h2::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: #ea580c;
+bottom: 0;
+left: 0;
+}
+.resources-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 2rem;
+}
+.resource-card {
+background-color: #ffffff;
+color: #1e293b;
+padding: 1.5rem;
+border-radius: 8px;
+max-width: 380px;
+flex: 1 1 300px;
+text-align: left;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+text-decoration: none;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.resource-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+.resource-card h3 {
+font-size: 1.25rem;
+color: #1e3a8a;
+margin-bottom: 0.5rem;
+font-weight: 700;
+}
+.resource-card p {
+font-size: 0.95rem;
+color: #4b5563;
+line-height: 1.5;
+margin-bottom: 1rem;
+}
+.resource-source {
+font-size: 0.85rem;
+font-weight: 600;
+color: #ea580c;
+margin-top: 1rem;
+border-top: 1px solid #e5e7eb;
+padding-top: 0.5rem;
+}
+/* --- FIN: SECCIÓN 4 STYLES --- */
+/* --- INICIO: FOOTER STYLES --- */
+.footer-seccionX {
+background-color: #f8f8f8;
+color: #1e3a8a;
+padding: 2rem 1.5rem;
+border-top: 3px solid #ea580c;
+}
+.footer-container {
+max-width: 1280px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+.footer-left {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+.footer-logo-group {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+.footer-logo-group img {
+height: 4rem;
+width: auto;
+margin-bottom: 0.25rem;
+}
+.footer-logo-group p {
+font-size: 1.125rem;
+font-weight: 700;
+color: #1e3a8a;
+}
+.footer-right {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+}
+.footer-location {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: #4b5563;
+}
+.social-icons {
+display: flex;
+gap: 1.25rem;
+}
+.social-icon {
+font-size: 1.75rem;
+color: #1e3a8a;
+transition: color 0.3s ease;
+text-decoration: none;
+}
+.social-icon:hover {
+color: #ea580c;
+}
+/* Responsive */
+@media (max-width: 768px) {
+.header-container {
+flex-direction: column;
+gap: 1rem;
+}
+nav {
+gap: 1rem;
+font-size: 0.875rem;
+}
+.carousel-content {
+padding-left: 1rem;
+}
+.carousel-text-blue, .carousel-text-orange, .carousel-text-blue-2,
+.carousel-text-orange-2, .carousel-text-orange-3, .carousel-text-blue-3,
+.carousel-text-orange-4 {
+font-size: 1.25rem;
+padding: 0.5rem 1rem;
+}
+.seccion2-container h2, .seccion3 h2, .seccion4 h2 {
+font-size: 1.75rem;
+}
+.seccion2-container p {
+font-size: 1rem;
+}
+.footer-container {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+.footer-left, .footer-right {
+align-items: center;
+}
+.footer-logo-group {
+align-items: center;
+}
+.footer-location {
+text-align: center;
+}
+.social-icons {
+justify-content: center;
+}
+}
+/* NUEVO CSS: Estilos para el Mapa del Sitio */
+.footer-sitemap {
+    text-align: center; /* Asegura que el título y los enlaces estén centrados */
+}
+.footer-sitemap h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+}
+.footer-sitemap ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+.footer-sitemap li {
+    margin-bottom: 0.25rem;
+}
+.footer-sitemap a {
+    color: #4b5563; /* Color de texto estándar */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.footer-sitemap a:hover {
+    color: #ea580c; /* Naranja acento al pasar el ratón */
+    text-decoration: underline;
+}
+
+/* Ajuste CSS para que el logo/nombre se centre entre sí (ya lo hicimos en el otro archivo, lo repetimos aquí) */
+.footer-logo-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* AJUSTE RESPONSIVE: Es crucial para el layout en móvil */
+@media (max-width: 768px) {
+    /* ... otros estilos responsivos existentes ... */
+    .footer-container {
+        /* Mantiene los elementos apilados en móvil */
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .footer-left, .footer-right, .footer-sitemap {
+        /* Añade espacio entre los bloques en móvil */
+        margin-bottom: 1.5rem; 
+    }
+}
+</style>
+</head>
+<body>
+<header class="seccion1">
+<div class="header-container">
+<div class="logo-section">
+<img src="https://i.imgur.com/1MGyJ3L.png" alt="Francisco Torassa">
+<h1>Francisco Torassa</h1>
+</div>
+<nav>
+<a href="#home" class="nav-btn active" data-slide="0">Home</a>
+<a href="#acerca-de" class="nav-btn">Sobre Mí</a> 
+<a href="#servicios" class="nav-btn">Servicios</a>
+<a href="#contacto" class="nav-btn">Contacto</a>
+</nav>
+</div>
+</header>
+
+<section class="carousel" id="home">
+<div class="carousel-image active">
+<img src="https://i.imgur.com/AweChEs.jpg" alt="Francisco Torassa en terraza con vista a la ciudad" />
+</div>
+
+<div class="carousel-image">
+<img src="https://imgur.com/CFBPY7n.jpg" alt="Imagen abstracta de planificación o trabajo" />
+</div>
+
+<div class="carousel-image">
+<img src="https://imgur.com/G5mjGu7.jpg" alt="Imagen abstracta de persona escalando o superando desafíos" />
+</div>
+
+<div class="carousel-image">
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#003d82;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#1a4d2e;stop-opacity:1" />
+</linearGradient>
+</defs>
+<rect width="1920" height="1080" fill="url(#grad5)"/>
+<circle cx="1700" cy="400" r="180" fill="#ea580c" opacity="0.15"/>
+</svg>
+</div>
+
+
+<div class="carousel-content">
+<div class="carousel-text slide-1-content" style="display: block;">
+<div class="carousel-text-group">
+<div class="carousel-text-blue">Francisco Torassa</div>
+<div class="carousel-text-orange">Administrador de Empresas / Coach de Equipos</div>
+</div>
+</div>
+<div class="carousel-text slide-2-content" style="display: none;">
+<div class="carousel-text-group">
+<div class="carousel-text-blue-2">Hacé que las cosas pasen</div>
+<a href="#contacto" class="carousel-text-orange-2">Hacé tu Consulta</a>
+</div>
+</div>
+<div class="carousel-text slide-3-content" style="display: none;">
+<div class="carousel-text-group">
+<div class="carousel-text-orange-3">Estás a un paso de crecer</div>
+<a href="#servicios" class="carousel-text-blue-3">Servicios</a>
+</div>
+</div>
+<div class="carousel-text slide-4-content" style="display: none;">
+<div class="carousel-text-group">
+<div class="carousel-text-blue-2">Mirá cómo estás</div>
+<a href="https://f-torassa.github.io/auto/" target="_blank" class="carousel-text-orange-4">Crear tu Diagnóstico</a>
+</div>
+</div>
+</div>
+
+<div class="carousel-indicators">
+<button class="indicator" data-slide="0"></button>
+<button class="indicator" data-slide="1"></button>
+<button class="indicator" data-slide="2"></button>
+<button class="indicator" data-slide="3"></button>
+</div>
+</section>
+<section class="seccion2" id="acerca-de">
+<div class="seccion2-container">
+<h2>Cuando el desafío es grande,
+el triunfo es mayor</h2>
+<p>Mi propósito fundamental es acompañar y desarrollar el potencial de los individuos dentro de un equipo y las estructuras pymes, para apuntalar el crecimiento de los negocios y su impacto social</p>
+<a href="acerca-de.html" class="seccion2-btn">Conóceme Mejor</a>
+</div>
+</section>
+<section class="seccion3" id="servicios">
+<div class="seccion3-container">
+<h2>NUESTROS PILARES DE ACCIÓN</h2>
+<div class="services-grid">
+
+<div class="service-card">
+<span class="service-card-icon"> 🧠 </span>
+<h3>Coaching Ejecutivo y Equipos</h3>
+<p>Facilito procesos de autoconocimiento y acción para líderes y equipos, maximizando su rendimiento y la sinergia organizacional.</p>
+<a href="C:\Users\carom\OneDrive\Desktop\Redes Marca Personal\PAGINA WEB\Coaching Ejecutivo y Equipos.pdf" class="service-card-btn">Accede Ahora</a>
+</div>
+<div class="service-card">
+<span class="service-card-icon"> 📈 </span>
+<h3>Estrategia y Gestión PYME</h3>
+<p>Implementación de herramientas de gestión empresarial para ordenar procesos, optimizar recursos y asegurar el crecimiento sostenible del negocio.</p>
+<a href="C:\Users\carom\OneDrive\Desktop\Redes Marca Personal\PAGINA WEB\Estrategia y Gestión PYME.pdf" class="service-card-btn">Accede Ahora</a>
+</div>
+<div class="service-card">
+<span class="service-card-icon"> 🛠️ </span>
+<h3>Desarrollo de Competencias</h3>
+<p>Diseño y ejecución de programas de capacitación a medida, enfocados en habilidades blandas y técnicas esenciales para el éxito del equipo.</p>
+<a href="#" class="service-card-btn">Accede Ahora</a>
+</div>
+
+<div class="service-card">
+<span class="service-card-icon"> 📢 </span>
+<h3>Charlas y Liderazgo Inspirador</h3>
+<p>Conferencias y talleres motivacionales centrados en el coaching de equipos, comunicación efectiva y desarrollo del alto rendimiento.</p>
+<a href="#" class="service-card-btn">Accede Ahora</a>
+</div>
+
+<div class="service-card">
+<span class="service-card-icon"> 🤝 </span>
+<h3>Rol Team Building</h3>
+<p>Diseño de dinámicas y actividades inmersivas para fortalecer la comunicación, confianza y colaboración dentro de tu equipo.</p>
+<a href="#" class="service-card-btn">Accede Ahora</a>
+</div>
+
+<div class="service-card">
+<span class="service-card-icon"> ⏱️ </span>
+<h3>Crea tu Autodiagnóstico Rápido</h3>
+<p>Ofrecemos una herramienta de autodiagnóstico de 15 minutos para que evalúes el estado actual de tu equipo o gestión empresarial.</p>
+<a href="https://f-torassa.github.io/auto/" class="service-card-btn" target="_blank">Accede Ahora</a>
+</div>
+</div>
+</div>
+</section>
+<section class="seccion4">
+<div class="seccion4-container">
+<h2>RECURSOS Y REFERENTES CLAVE</h2>
+<div class="resources-grid">
+
+<a href="https://www.forbesargentina.com/columnistas/las-cuatro-tendencias-empresas-incorporan-coaching-mejorar-desempeno-n21940" target="_blank" class="resource-card">
+<div>
+<h3>Las cuatro tendencias por las que las empresas incorporan el coaching para mejorar el desempeño</h3>
+<p>Artículo que explica el impacto del coaching ejecutivo y de equipos como motor de innovación, compromiso y crecimiento en entornos empresariales modernos.</p>
+</div>
+<p class="resource-source">Forbes Argentina</p>
+</a>
+<a href="https://www.infobae.com/opinion/2025/08/06/la-inteligencia-la-triple-frontera-del-liderazgo-empresarial/" target="_blank" class="resource-card">
+<div>
+<h3>La Inteligencia: La Triple Frontera del Liderazgo Empresarial</h3>
+<p>Artículo de opinión que profundiza en la inteligencia como factor clave para el liderazgo en la toma de decisiones y el éxito de las empresas.</p>
+</div>
+<p class="resource-source">Infobae Opinión</p>
+</a>
+<a href="https://www.webyempresas.com/matriz-de-gestion-del-tiempo/#google_vignette" target="_blank" class="resource-card">
+<div>
+<h3>Matriz de Eisenhower para Productividad</h3>
+<p>Herramienta visual para priorizar tareas según su urgencia e importancia.
+Una clave para la gestión efectiva del tiempo en el día a día.</p>
+</div>
+<p class="resource-source">Web y Empresas</p>
+</a>
+</div>
+</div>
+</section>
+<footer class="footer-seccionX" id="contacto">
+<div class="footer-container">
+
+<div class="footer-left">
+<div class="footer-logo-group">
+<img src="https://i.imgur.com/1MGyJ3L.png" alt="Francisco Torassa Logo">
+<p>Francisco Torassa</p>
+</div>
+</div>
+
+<div class="footer-sitemap">
+    <h4>MAPA DEL SITIO</h4>
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="acerca-de.html">Sobre Mí</a></li>
+        <li><a href="Home.html#servicios">Servicios</a></li> 
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</div>
+
+<div class="footer-right">
+
+<div class="footer-location">
+<i class="fas fa-phone"></i> +54 9 358 50902205
+</div>
+
+<div class="social-icons">
+<a href="https://wa.me/54935850902205" target="_blank" class="social-icon" aria-label="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a href="https://www.instagram.com/francisco.torassa/" target="_blank" class="social-icon" aria-label="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://www.linkedin.com/in/francisco-david-torassa-49848b2a7/" target="_blank" class="social-icon" aria-label="LinkedIn">
+<i class="fab fa-linkedin-in"></i>
+</a>
+<a href="https://www.tiktok.com/@francisco.torassa" target="_blank" class="social-icon" aria-label="TikTok">
+<i class="fab fa-tiktok"></i>
+</a>
+<a href="https://www.facebook.com/francis.torassa" target="_blank" class="social-icon" aria-label="Facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+</div>
+
+</div>
+
+</div>
+</footer>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-image');
+const indicators = document.querySelectorAll('.indicator');
+const slideContents = [
+document.querySelector('.slide-1-content'),
+document.querySelector('.slide-2-content'),
+document.querySelector('.slide-3-content'),
+document.querySelector('.slide-4-content')
+];
+// NOTA: carouselNavButtons AHORA SOLO SELECCIONA HOME (data-slide="0")
+const carouselNavButtons = document.querySelectorAll('.nav-btn[data-slide]');
+
+function showSlide(n) {
+// Asegura que n esté en el rango [0, slides.length - 1]
+if (n < 0) {
+n = slides.length - 1;
+} else if (n >= slides.length) {
+n = 0;
+}
+// Remove active class from all slides
+slides.forEach(slide => slide.classList.remove('active'));
+indicators.forEach(indicator => indicator.classList.remove('active'));
+slideContents.forEach(content => content.style.display = 'none');
+
+// El active class se mantiene en el enlace de navegación correcto
+document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+// Add active class to current slide
+slides[n].classList.add('active');
+indicators[n].classList.add('active');
+slideContents[n].style.display = 'block';
+// Asegúrate de que el botón de navegación correspondiente al slide activo también se actualice
+const navButtonForSlide = document.querySelector(`.nav-btn[data-slide="${n}"]`);
+
+if (navButtonForSlide) {
+navButtonForSlide.classList.add('active');
+} else if (n === 0) {
+    // Si estamos en el home (slide 0), marcamos "Home" como activo.
+    document.querySelector('.nav-btn[data-slide="0"]').classList.add('active');
+}
+currentSlide = n;
+}
+// Inicializa el primer slide
+showSlide(currentSlide);
+// Auto-advance carousel every 4 seconds
+let carouselInterval = setInterval(() => {
+currentSlide = (currentSlide + 1) % slides.length;
+showSlide(currentSlide); // Llamamos con el nuevo índice
+}, 4000);
+// Función para resetear el intervalo
+function resetInterval() {
+clearInterval(carouselInterval);
+carouselInterval = setInterval(() => {
+currentSlide = (currentSlide + 1) % slides.length;
+showSlide(currentSlide);
+}, 4000);
+}
+// Add click handlers to indicators
+indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+showSlide(index);
+resetInterval(); // Reinicia el temporizador
+});
+});
+// Add click handlers to ONLY the carousel-controlling nav links (Home)
+carouselNavButtons.forEach(btn => {
+    const slideIndex = parseInt(btn.getAttribute('data-slide'));
+    btn.addEventListener('click', (e) => {
+        // Al quitar e.preventDefault() del botón Home, permitimos que el ancla #home haga el scroll.
+        showSlide(slideIndex); // Asegura que se vea el Slide 0
+        resetInterval(); // Reinicia el temporizador
+    });
+});
+// Lógica para manejar el estado 'active' de TODOS los anchor links (Sobre Mí, Servicios, Contacto)
+// Estos enlaces SÍ usan el comportamiento de scroll nativo (sin e.preventDefault()) y el CSS scroll-margin-top
+document.querySelectorAll('a[href^="#"]:not([data-slide])').forEach(anchor => {
+    anchor.addEventListener('click', () => {
+        // Remover 'active' de todos los nav buttons
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        // Añadir 'active' al botón clickeado
+        anchor.classList.add('active');
+        resetInterval(); // Reinicia el temporizador
+    });
+});
+
+</script>
+</body>
+</html>
