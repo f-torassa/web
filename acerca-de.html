@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Mí - Francisco Torassa</title>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<style>
+/* [CÓDIGO CSS BASE] */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+background-color: #ffffff;
+color: #1e293b;
+}
+
+/* === HEADER (SECCIÓN 1) ESTILOS IDÉNTICOS === */
+.seccion1 {
+background-color: #ffffff;
+border-bottom: 1px solid #e5e7eb;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.header-container {
+max-width: 1280px;
+margin: 0 auto;
+padding: 0.75rem 1.5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.logo-section {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+.logo-section img {
+height: 4rem;
+width: auto;
+}
+.logo-section h1 {
+font-size: 1.125rem;
+font-weight: 700;
+color: #1e3a8a;
+}
+/* Navigation Styles */
+nav {
+display: flex;
+gap: 2rem;
+align-items: center;
+}
+nav a {
+background: none;
+border: none;
+color: #1e3a8a;
+font-weight: 500;
+cursor: pointer;
+padding: 0.5rem 0;
+transition: color 0.3s ease;
+border-bottom: 2px solid transparent;
+text-decoration: none;
+}
+nav a:hover {
+color: #1e40af;
+}
+nav a.active {
+border-bottom-color: #1e3a8a;
+}
+
+/* === SECCIÓN DE IMAGEN ESTÁTICA === */
+.hero-image {
+width: 100%;
+height: 60vh;
+background-color: #1e3a8a;
+overflow: hidden;
+position: relative;
+}
+.hero-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top center;
+}
+/* === SECCIÓN DE PERFIL Y PILARES === */
+.profile-section {
+padding: 4rem 1.5rem;
+background-color: #ffffff;
+}
+.profile-container {
+max-width: 1280px;
+margin: 0 auto;
+text-align: center;
+}
+/* CSS ACTUALIZADO: AGREGADO display, position y padding para el subrayado */
+.profile-container h2 {
+font-size: 2.5rem;
+color: #1e3a8a;
+margin-bottom: 2.25rem; /* Ajustado de 3rem para mantener el espacio visual total */
+display: inline-block;
+position: relative;
+padding-bottom: 0.75rem; /* Espacio para la línea */
+}
+/* NUEVO CSS: LÍNEA SUBRAYADA EN COLOR DE CONTRASTE */
+.profile-container h2::after {
+    content: '';
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    height: 4px;
+    background-color: #ea580c; /* Color de contraste (Naranja) */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.profile-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+justify-content: center;
+}
+.profile-card {
+background-color: #f8f8f8;
+border: 1px solid #e5e7eb;
+border-radius: 8px;
+padding: 2rem;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+}
+.profile-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.profile-card-image {
+width: 100%;
+height: 150px;
+background-color: #e5e7eb;
+border-radius: 4px;
+margin-bottom: 1rem;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.5rem;
+color: #4b5563;
+}
+.profile-card h3 {
+font-size: 1.5rem;
+font-weight: 700;
+color: #1e3a8a;
+margin-bottom: 0.5rem;
+}
+.profile-card p {
+font-size: 1rem;
+color: #ea580c;
+line-height: 1.4;
+margin-bottom: 1.5rem;
+}
+.profile-card::after {
+content: '';
+width: 60px;
+height: 3px;
+background-color: #1e3a8a;
+margin-top: 1rem;
+}
+/* === SECCIÓN: VALORES === */
+.values-section {
+background-color: #1e3a8a;
+padding: 4rem 1.5rem;
+text-align: center;
+}
+.values-container {
+max-width: 1000px;
+margin: 0 auto;
+}
+/* CSS ACTUALIZADO: AGREGADO display, position y padding para el subrayado */
+.values-container h2 {
+font-size: 2rem;
+color: #ffffff;
+margin-bottom: 2.25rem; /* Ajustado de 3rem para mantener el espacio visual total */
+display: inline-block;
+position: relative;
+padding-bottom: 0.75rem; /* Espacio para la línea */
+}
+/* NUEVO CSS: LÍNEA SUBRAYADA EN COLOR DE CONTRASTE */
+.values-container h2::after {
+    content: '';
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    height: 4px;
+    background-color: #ea580c; /* Color de contraste (Naranja) */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Grid de Valores: 3 columnas, 2 filas */
+.values-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+justify-content: center;
+}
+.value-card {
+background-color: #ffffff;
+border-radius: 8px;
+padding: 1.5rem;
+text-align: center;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.value-card:hover {
+transform: translateY(-3px);
+background-color: #f0f0f0;
+}
+.value-icon {
+font-size: 2.5rem;
+color: #ea580c;
+margin-bottom: 0.75rem;
+}
+.value-card h3 {
+font-size: 1.15rem;
+font-weight: 700;
+color: #1e3a8a;
+margin: 0;
+text-transform: uppercase;
+}
+/* === FOOTER (SECCIÓN X) ESTILOS IDÉNTICOS === */
+.footer-seccionX {
+background-color: #f8f8f8;
+color: #1e3a8a;
+padding: 2rem 1.5rem;
+border-top: 3px solid #ea580c;
+margin-top: 4rem;
+}
+.footer-container {
+max-width: 1280px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+.footer-left {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+.footer-logo-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.footer-logo-group img {
+height: 4rem;
+width: auto;
+margin-bottom: 0.25rem;
+}
+.footer-logo-group p {
+font-size: 1.125rem;
+font-weight: 700;
+color: #1e3a8a;
+}
+.footer-right {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+}
+.footer-location {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: #4b5563;
+}
+.social-icons {
+display: flex;
+gap: 1.25rem;
+}
+.social-icon {
+font-size: 1.75rem;
+color: #1e3a8a;
+transition: color 0.3s ease;
+text-decoration: none;
+}
+.social-icon:hover {
+color: #ea580c;
+}
+/* Responsive */
+@media (max-width: 768px) {
+.header-container {
+flex-direction: column;
+gap: 1rem;
+}
+nav {
+gap: 1rem;
+font-size: 0.875rem;
+}
+.profile-grid, .values-grid {
+grid-template-columns: 1fr;
+}
+.profile-container h2 {
+font-size: 2rem;
+}
+.footer-container {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+.footer-left, .footer-right, .footer-logo-group {
+align-items: center;
+}
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+.profile-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.values-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+@media (min-width: 1025px) {
+.profile-grid, .values-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+/* --- INICIO: SECCIÓN DESCARGA BROCHURE (NUEVO CSS) --- */
+.seccion-brochure {
+background-color: #1e3a8a; /* Color de fondo azul */
+color: #ffffff;
+padding: 3rem 1.5rem;
+text-align: center;
+}
+.seccion-brochure-container {
+max-width: 800px;
+margin: 0 auto;
+}
+.seccion-brochure h2 {
+font-size: 1.75rem;
+font-weight: 700;
+margin-bottom: 1.5rem;
+color: #ffffff;
+}
+.brochure-btn {
+background-color: #ea580c; /* Color de botón naranja */
+color: #ffffff;
+border: none;
+padding: 0.75rem 2rem;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+text-decoration: none;
+display: inline-block;
+margin-top: 1.5rem; /* Esto agregará 1.5 veces el tamaño de la fuente de espacio arriba */
+}
+.brochure-btn:hover {
+background-color: #f97316;
+transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+.seccion-brochure h2 {
+font-size: 1.5rem;
+}
+}
+/* --- FIN: SECCIÓN DESCARGA BROCHURE (NUEVO CSS) --- */
+/* Nuevo CSS para que las imágenes de los pilares cubran el contenedor */
+.profile-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    object-position: center 25%; /* Ajusta verticalmente. Puedes probar con 20%, 30% según necesites */
+}
+/* NUEVO CSS: Estilos para el Mapa del Sitio */
+.footer-sitemap {
+    text-align: center; /* Asegura que el título y los enlaces estén centrados */
+}
+.footer-sitemap h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+}
+.footer-sitemap ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+.footer-sitemap li {
+    margin-bottom: 0.25rem;
+}
+.footer-sitemap a {
+    color: #4b5563; /* Color de texto estándar */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.footer-sitemap a:hover {
+    color: #ea580c; /* Naranja acento al pasar el ratón */
+    text-decoration: underline;
+}
+
+/* AJUSTE RESPONSIVE (añade o modifica esta regla si no existe en tu @media) */
+@media (max-width: 768px) {
+    /* ... otros estilos responsivos ... */
+    .footer-container {
+        /* Mantiene los elementos apilados en móvil */
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .footer-left, .footer-right, .footer-sitemap {
+        /* Añade espacio entre los bloques en móvil */
+        margin-bottom: 1.5rem; 
+    }
+}
+</style>
+</head>
+<body>
+<header class="seccion1">
+<div class="header-container">
+<div class="logo-section">
+<img src="https://i.imgur.com/1MGyJ3L.png" alt="Francisco Torassa">
+<h1>Francisco Torassa</h1>
+</div>
+<nav>
+<a href="Home.Html#home" class="nav-btn">Home</a>
+<a href="acerca-de.html" class="nav-btn active">Sobre Mí</a>
+<a href="Home.Html#servicios" class="nav-btn">Servicios</a>
+<a href="Home.Html#contacto" class="nav-btn">Contacto</a>
+</nav>
+</div>
+</header>
+
+<section class="hero-image">
+<img src="https://i.imgur.com/6E2hQ8A.jpg" alt="Francisco Torassa, Foto de perfil profesional">
+</section>
+<section class="profile-section">
+<div class="profile-container">
+<h2>Mi Propósito en la Vida y los Negocios</h2>
+
+<div class="profile-grid">
+
+<div class="profile-card">
+    <div class="profile-card-image">
+        <img src="https://i.imgur.com/DphpFUe.jpg" alt="Socio Estratégico y Consultoría">
+    </div>
+    <h3>Socio Estratégico</h3>
+    <p>Socio Gerente de Salto Consultora. Acompañando a superarse.</p>
+</div>
+<div class="profile-card">
+    <div class="profile-card-image">
+        <img src="https://imgur.com/clO4eAf.jpg" alt="Speaker y Conferencista Motivacional">
+    </div>
+    <h3>Impulsor de Cambios</h3>
+    <p>Conferencista Motivacional de Equipos.</p>
+</div>
+<div class="profile-card">
+    <div class="profile-card-image">
+        <img src="https://i.imgur.com/cZhUgct.jpg" alt="Emprendedor e Innovación">
+    </div>
+    <h3>Emprendedor por Naturaleza</h3>
+    <p>Emprendedor desde siempre y para siempre.</p>
+</div>
+<div class="profile-card">
+    <div class="profile-card-image">
+        <img src="https://i.imgur.com/Th7zidr.jpg" alt="Líder por Elección">
+    </div>
+    <h3>Líder por Elección</h3>
+    <p>Elijo y creo mi Ser Líder.</p>
+</div>
+<div class="profile-card">
+    <div class="profile-card-image">
+        <img src="https://i.imgur.com/KbtoCvy.jpg" alt="Entrenador y Profesor">
+    </div>
+    <h3>Entrenador y Profesor</h3>
+    <p>Entreno a futuros Coaches Ontológicos.</p>
+</div>
+<div class="profile-card">
+    <div class="profile-card-image">
+        <img src="https://i.imgur.com/AweChEs.jpg" alt="Creativo Empresarial">
+    </div>
+    <h3>Creativo Empresarial</h3>
+    <p>Entusiasta creativo e innovador que impulsa el desarrollo constante.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="values-section">
+<div class="values-container">
+<h2>MIS VALORES FUNDAMENTALES</h2>
+<div class="values-grid">
+
+<div class="value-card">
+<i class="fas fa-handshake value-icon"></i>
+<h3>HONESTIDAD</h3>
+</div>
+
+<div class="value-card">
+<i class="fas fa-lightbulb value-icon"></i>
+<h3>CREATIVIDAD</h3>
+</div>
+
+<div class="value-card">
+<i class="fas fa-crown value-icon"></i>
+<h3>LIDERAZGO</h3>
+</div>
+<div class="value-card">
+<i class="fas fa-briefcase value-icon"></i>
+<h3>PROFESIONALISMO</h3>
+</div>
+<div class="value-card">
+<i class="fas fa-fire value-icon"></i>
+<h3>ENTUSIASMO</h3>
+</div>
+<div class="value-card">
+<i class="fas fa-users value-icon"></i>
+<h3>TRABAJO EN EQUIPO</h3>
+</div>
+</div>
+</div>
+</section>
+<section class="seccion-brochure">
+<div class="seccion-brochure-container">
+<h2>¿Listo para empezar a crecer?</h2>
+<p>Descarga nuestro brochure completo para conocer en detalle nuestros programas y metodologías.</p>
+<a href="Presentación Francisco Torassa (1).pdf" class="brochure-btn" download target="_blank" rel="noopener noreferrer">
+<i class="fas fa-download"></i> Descargar Brochure
+</a>
+</div>
+</section>
+<footer class="footer-seccionX">
+    <div class="footer-container">
+        
+        <div class="footer-left">
+            <div class="footer-logo-group">
+                <img src="https://i.imgur.com/1MGyJ3L.png" alt="Francisco Torassa Logo">
+                <p>Francisco Torassa</p>
+            </div>
+        </div>
+        
+       <div class="footer-sitemap">
+    <h4>MAPA DEL SITIO</h4>
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="acerca-de.html">Sobre Mí</a></li>
+        <li><a href="Home.html#servicios">Servicios</a></li> 
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</div>
+        
+        <div class="footer-right">
+            <div class="footer-location">
+                <i class="fas fa-phone"></i> +54 9 358 50902205
+            </div>
+            <div class="social-icons">
+                <a href="https://wa.me/54935850902205" target="_blank" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/francisco.torassa/" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/francisco-david-torassa-49848b2a7/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.tiktok.com/@francisco.torassa" target="_blank" class="social-icon" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.facebook.com/francis.torassa" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
